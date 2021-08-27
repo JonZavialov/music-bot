@@ -1,0 +1,24 @@
+{
+  "name": "sonytv-music-bot",
+  "version": "0.0.1",
+  "description": "A Discord bot that will play music from multiple platforms in a discord voice channel. Made as a replacement for Groovy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SonyTV-Bryson/music-bot.git"
+  },
+  "author": "SonyTV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SonyTV-Bryson/music-bot/issues"
+  },
+  "homepage": "https://github.com/SonyTV-Bryson/music-bot#readme",
+  "dependencies": {
+    "discord-reply": "^0.1.2",
+    "discord.js": "^13.1.0",
+    "fs": "0.0.1-security"
+  }
+}
