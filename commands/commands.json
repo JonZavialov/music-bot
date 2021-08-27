@@ -26,5 +26,9 @@
     "clear": {
         "args": 0,
         "desc": "Clears the current queue."
+    },
+    "skip": {
+        "args": 0,
+        "desc": "Skips the current song."
     }
 }

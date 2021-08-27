@@ -7,6 +7,7 @@ const play = require('../commands/play')
 const help = require('../commands/help')
 const shuffle = require('../commands/shuffle')
 const clear = require('../commands/clear')
+const skip = require('../commands/skip')
 
 async function parseCommand(msg, prefix){
     const path = __dirname.substring(0, __dirname.length-9) + "commands\\commands.json"
