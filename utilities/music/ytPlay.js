@@ -4,9 +4,11 @@ var opus = require('node-opus')
 const deleteEntryFromQueue = require('./deleteEntryFromQueue')
 const checkIfQueueIsEmpty = require('./checkIfQueueIsEmpty')
 const getFirstElementOfQueue = require('./getFirstElementOfQueue')
+const createYtEmbed = require('../createYtEmbed')
+const getYtInfo = require('./getYtInfo')
 
 async function ytPlay(msg, url){
-    msg.member.voice.channel.join().then(connection =>{
+    msg.member.voice.channel.join().then(async(connection) =>{
         const dispatcher = connection.play(ytdl(url))
         .on("finish", async() => {
             await deleteEntryFromQueue(url)
@@ -16,7 +18,8 @@ async function ytPlay(msg, url){
             }
         })
         msg.react('👍')
-        msg.channel.send(`Playing ${url}`)
+        const embed = await createYtEmbed(await getYtInfo(url))
+        msg.channel.send(await embed)
     }).catch(err => console.log(err))
 }
 

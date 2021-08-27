@@ -14,9 +14,12 @@ async function getYtInfo(url){
 
     xmlHttp.send( null )
     const res = await JSON.parse(xmlHttp.responseText)
+
     return {
         "title": res.items[0].snippet.title,
         "channel": res.items[0].snippet.channelTitle,
+        "url": url,
+        "thumb": res.items[0].snippet.thumbnails.standard.url,
         "stats": res.items[0].statistics
     }
 }
