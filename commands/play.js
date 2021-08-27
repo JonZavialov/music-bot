@@ -42,7 +42,10 @@ async function play(msg, searchTerm){
 
     if(queueIsEmpty){
         ytPlay(msg, await getFirstElementOfQueue())
+    }else{
+        msg.lineReply("Added to queue!")
     }
+    msg.react('👍')
 }
 
 module.exports = play

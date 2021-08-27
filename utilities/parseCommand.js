@@ -4,6 +4,9 @@ const ping = require('../commands/ping')
 const join = require('../commands/join')
 const leave = require('../commands/leave')
 const play = require('../commands/play')
+const help = require('../commands/help')
+const shuffle = require('../commands/shuffle')
+const clear = require('../commands/clear')
 
 async function parseCommand(msg, prefix){
     const path = __dirname.substring(0, __dirname.length-9) + "commands\\commands.json"

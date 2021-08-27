@@ -14,5 +14,17 @@
     "play": {
         "args": 1,
         "desc": "Queues a song. Compatible with youtube and spotify."
+    },
+    "help": {
+        "args": 0,
+        "desc": "Displays this message."
+    },
+    "shuffle": {
+        "args": 0,
+        "desc": "Shuffles the current queue."
+    },
+    "clear": {
+        "args": 0,
+        "desc": "Clears the current queue."
     }
 }
