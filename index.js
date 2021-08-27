@@ -1,10 +1,9 @@
-const msgReply = require('./utilities/msgReply')
 const parseCommand = require('./utilities/parseCommand')
 
-const { Client, Intents } = require('discord.js')
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const fs = require('fs');
-const { exec } = require('child_process');
+const Discord = require('discord.js')
+require('discord-reply')
+const client = new Discord.Client()
+const fs = require('fs')
 
 let rawdata = fs.readFileSync('./config.json')
 let config = JSON.parse(rawdata)

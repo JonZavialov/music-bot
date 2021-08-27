@@ -1,7 +1,5 @@
-const msgReply = require('../utilities/msgReply')
-
 function ping(msg){
-    msgReply(msg, "Pong!")
+    msg.lineReply("Pong!")
 }
 
 module.exports = ping

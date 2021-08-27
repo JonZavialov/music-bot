@@ -1,7 +1,8 @@
 const fs = require('fs')
-const msgReply = require('./msgReply')
 
 const ping = require('../commands/ping')
+const join = require('../commands/join')
+const leave = require('../commands/leave')
 
 async function parseCommand(msg){
     const path = __dirname.substring(0, __dirname.length-9) + "commands\\commands.json"
@@ -18,10 +19,10 @@ async function parseCommand(msg){
     const commandArgs = commands[firstWord].args
     
     if(commandArgs < args.length -1){
-        msgReply(msg, 'Too many arguements!')
+        msg.lineReply('Too many arguements!')
         return
     }else if(commandArgs > args.length -1){
-        msgReply(msg, `Missing ${commandArgs-args.length+1} arguements`)
+        msg.lineReply(`Missing ${commandArgs-args.length+1} arguements`)
         return
     }
 

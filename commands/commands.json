@@ -2,5 +2,13 @@
     "ping": {
         "args": 0,
         "desc": "A debugging command to see if the bot is functional."
+    },
+    "join":{
+        "args": 0,
+        "desc": "Joins the voice channel you are currently in."
+    },
+    "leave":{
+        "args": 0,
+        "desc": "Leaves the voice channel it's currently in."
     }
 }
