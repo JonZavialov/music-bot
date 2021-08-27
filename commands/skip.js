@@ -9,6 +9,7 @@ async function skip(msg){
     if(await getLengthOfQueue() == 1){
         pauseMusic(msg)
         clearQueue()
+        msg.react('👍')
     }else{
         await pauseMusic(msg)
         await deleteEntryFromQueue(await getFirstElementOfQueue())

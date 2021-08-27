@@ -51,7 +51,7 @@
     },
     "queue": {
         "args": 0,
-        "desc": "Displays the current queue",
+        "desc": "Displays the current queue.",
         "aliases": "q"
     }
 }

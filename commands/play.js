@@ -46,7 +46,7 @@ async function play(msg, searchTerm){
         }
     }else{
         console.log('youtube search recieved')
-        url = await getUrlFromSearchTerm(searchTerm)
+        url = await getUrlFromSearchTerm(searchTerm,msg)
         await addSongToQueue(url)
     }
 
