@@ -3,12 +3,16 @@
         "args": 0,
         "desc": "A debugging command to see if the bot is functional."
     },
-    "join":{
+    "join": {
         "args": 0,
         "desc": "Joins the voice channel you are currently in."
     },
-    "leave":{
+    "leave": {
         "args": 0,
         "desc": "Leaves the voice channel it's currently in."
+    },
+    "play": {
+        "args": 1,
+        "desc": "Queues a song. Compatible with youtube and spotify."
     }
 }

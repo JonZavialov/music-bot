@@ -19,6 +19,8 @@
   "dependencies": {
     "discord-reply": "^0.1.2",
     "discord.js": "^12.5.3",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "node-opus": "^0.3.3",
+    "ytdl-core": "^4.9.1"
   }
 }
