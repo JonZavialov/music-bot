@@ -12,15 +12,25 @@ const pause = require('../commands/pause')
 const resume = require('../commands/resume')
 
 async function parseCommand(msg, prefix){
-    const path = __dirname.substring(0, __dirname.length-9) + "commands\\commands.json"
+    let path = __dirname.substring(0, __dirname.length-9) + "commands\\commands.json"
     let rawdata = fs.readFileSync(path)
     let commands = JSON.parse(rawdata)
     
     const args = msg.content.trim().split(/ +/g);
     const commandsList = Object.keys(commands)
 
-    const firstWord = args[0].substring(1,args[0].length)
+    let firstWord = args[0].substring(prefix.length,args[0].length)
     
+    path = __dirname.substring(0, __dirname.length-9) + "commands\\aliases.json"
+    rawdata = fs.readFileSync(path)
+    let aliases = JSON.parse(rawdata)
+
+    const aliasList = Object.keys(aliases)
+
+    if(aliasList.includes(firstWord)){
+        firstWord = aliases[firstWord]
+    }
+
     if(!commandsList.includes(firstWord)) return
 
     const commandArgs = commands[firstWord].args

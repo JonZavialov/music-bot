@@ -1,0 +1,12 @@
+{
+    "pi": "ping",
+    "j": "join",
+    "l": "leave",
+    "p": "play",
+    "h": "help",
+    "sh": "shuffle",
+    "c": "clear",
+    "s": "skip",
+    "pa": "pause",
+    "r": "resume"
+}
