@@ -1,19 +1,18 @@
-const ytPlay = require('./ytPlay')
 const spdl = require('spdl-core')
 const getUrlFromSearchTerm = require('../getUrlFromSearchTerm')
 
-function spotifyPlay(msg, url){
-    spdl.getInfo(url)
+function convertSpotifyToYt(msg, url){
+    let ytURL = spdl.getInfo(url)
     .then(async(infos) => {
         const artistAndName = infos.artist + " " + infos.title
         url = await getUrlFromSearchTerm(artistAndName)
-        ytPlay(msg, url)
-        return
+        return url
     })
     .catch(error => {
         console.log(error)
         msg.lineReply('Invalid URL!')
     })
+    return ytURL
 }
 
-module.exports = spotifyPlay
+module.exports = convertSpotifyToYt

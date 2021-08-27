@@ -1,4 +1,5 @@
 const parseCommand = require('./utilities/parseCommand')
+const clearQueue = require('./utilities/music/clearQueue')
 
 const Discord = require('discord.js')
 require('discord-reply')
@@ -13,6 +14,7 @@ const prefix = config.prefix
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`)
     client.user.setActivity('Moderating The Bryson Coalition')
+    clearQueue()
 })
 
 client.on('message', msg => {
