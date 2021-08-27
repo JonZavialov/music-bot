@@ -8,30 +8,22 @@ async function parseCommand(msg){
     let rawdata = fs.readFileSync(path)
     let commands = JSON.parse(rawdata)
     
-    let index
-    if(msg.content.indexOf(' ') == -1){
-        index = msg.content.length
-    }else{
-        index = msg.content.indexOf(' ')
-    }
-    
+    const args = msg.content.trim().split(/ +/g);
     const commandsList = Object.keys(commands)
-    const firstWord = msg.content.substring(1,index)
-   
+
+    const firstWord = args[0].substring(1,args[0].length)
+    
     if(!commandsList.includes(firstWord)) return
 
     const commandArgs = commands[firstWord].args
-    const amountOfSpaces = (msg.content.match(/ /g) || []).length
     
-    if(commandArgs < amountOfSpaces){
+    if(commandArgs < args.length -1){
         msgReply(msg, 'Too many arguements!')
         return
-    }else if(commandArgs > amountOfSpaces){
-        msgReply(msg, `Missing ${commandArgs-amountOfSpaces} arguements`)
+    }else if(commandArgs > args.length -1){
+        msgReply(msg, `Missing ${commandArgs-args.length+1} arguements`)
         return
     }
-
-    const args = msg.content.trim().split(/ +/g);
 
     let evalString = firstWord + "(msg,"
     for(let i = 1; i < commandArgs + 1; i++){
