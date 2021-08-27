@@ -8,5 +8,6 @@
     "c": "clear",
     "s": "skip",
     "pa": "pause",
-    "r": "resume"
+    "r": "resume",
+    "q": "queue"
 }

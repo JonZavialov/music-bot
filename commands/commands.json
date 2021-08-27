@@ -1,42 +1,57 @@
 {
     "ping": {
         "args": 0,
-        "desc": "A debugging command to see if the bot is functional."
+        "desc": "A debugging command to see if the bot is functional.",
+        "aliases": "pi"
     },
     "join": {
         "args": 0,
-        "desc": "Joins the voice channel you are currently in."
+        "desc": "Joins the voice channel you are currently in.",
+        "aliases": "j"
     },
     "leave": {
         "args": 0,
-        "desc": "Leaves the voice channel it's currently in."
+        "desc": "Leaves the voice channel it's currently in.",
+        "aliases": "l"
     },
     "play": {
         "args": 1,
-        "desc": "Queues a song. Compatible with youtube and spotify."
+        "desc": "Queues a song. Compatible with youtube and spotify.",
+        "aliases": "p"
     },
     "help": {
         "args": 0,
-        "desc": "Displays this message."
+        "desc": "Displays this message.",
+        "aliases": "h"
     },
     "shuffle": {
         "args": 0,
-        "desc": "Shuffles the current queue."
+        "desc": "Shuffles the current queue.",
+        "aliases": "sh"
     },
     "clear": {
         "args": 0,
-        "desc": "Clears the current queue."
+        "desc": "Clears the current queue.",
+        "aliases": "c"
     },
     "skip": {
         "args": 0,
-        "desc": "Skips the current song."
+        "desc": "Skips the current song.",
+        "aliases": "s"
     },
     "pause": {
         "args": 0,
-        "desc": "Pauses the playing of songs."
+        "desc": "Pauses the playing of songs.",
+        "aliases": "pa"
     },
     "resume": {
         "args": 0,
-        "desc": "Resumes the playing of songs."
+        "desc": "Resumes the playing of songs.",
+        "aliases": "r"
+    },
+    "queue": {
+        "args": 0,
+        "desc": "Displays the current queue",
+        "aliases": "q"
     }
 }

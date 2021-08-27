@@ -10,6 +10,7 @@ async function help(msg){
     let helpKey
     let helpDesc
     let helpArgs
+    let helpAliases
 
     keys = Object.keys(commands)
     
@@ -17,8 +18,9 @@ async function help(msg){
         helpKey = keys[i]
         helpDesc = commands[helpKey].desc
         helpArgs = commands[helpKey].args
+        helpAliases = commands[helpKey].aliases
 
-        helpString += `\`\`${helpKey}\`\`: ${helpDesc} \`\`arguements: ${helpArgs}\`\`\n`
+        helpString += `\`\`${helpKey}\`\`: ${helpDesc} \`\`arguements: ${helpArgs}\`\`,\`\`alias: ${helpAliases}\`\`\n`
     }
 
     msg.lineReply(helpString)

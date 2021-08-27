@@ -10,6 +10,7 @@ const clear = require('../commands/clear')
 const skip = require('../commands/skip')
 const pause = require('../commands/pause')
 const resume = require('../commands/resume')
+const queue = require('../commands/queue')
 
 async function parseCommand(msg, prefix){
     let path = __dirname.substring(0, __dirname.length-9) + "commands\\commands.json"

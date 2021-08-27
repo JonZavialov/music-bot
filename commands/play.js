@@ -10,6 +10,7 @@ const getYtInfo = require('../utilities/music/getYtInfo')
 async function play(msg, searchTerm){
     let queueIsEmpty = await checkIfQueueIsEmpty()
     let url
+    let playlist = false
     if(searchTerm.startsWith('https://')) {
         url = searchTerm
         if(searchTerm.indexOf('spotify') != -1){
@@ -17,7 +18,8 @@ async function play(msg, searchTerm){
             if(searchTerm.indexOf('playlist') == -1){
                 await addSongToQueue(await convertSpotifyToYt(msg,url))
             }else{
-                msg.lineReply('Queueing music. This takes up to a minute. (I have shitty wifi)')
+                playlist = true
+                msg.lineReply('Queueing music.')
                 await getData(url)
                 .then(async data => {
                 // 'tracks' property only exists on a playlist data object
@@ -28,6 +30,9 @@ async function play(msg, searchTerm){
                     for (let i = 0; i < spotifyPlaylistItems.length; i++) {
                         await addSongToQueue(await convertSpotifyToYt(msg,spotifyPlaylistItems[i].track.external_urls.spotify))
                         await queueMsg.edit(`Adding song to queue: \`\`${spotifyPlaylistItems[i].track.name}\`\` (${i+1}/${spotifyPlaylistItems.length})`)
+                        if(i == 0){
+                            ytPlay(msg, await getFirstElementOfQueue())
+                        }
                     }
                     await queueMsg.delete()
                 }    
@@ -45,9 +50,9 @@ async function play(msg, searchTerm){
         await addSongToQueue(url)
     }
 
-    if(queueIsEmpty){
+    if(queueIsEmpty && !playlist){
         ytPlay(msg, await getFirstElementOfQueue())
-    }else{
+    }else if(!playlist){
         msg.lineReply("Added to queue!")
     }
     msg.react('👍')
