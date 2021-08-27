@@ -19,7 +19,7 @@ client.on('message', msg => {
     if(msg.author.id == '880617388222062642') return
 
     if(msg.content.startsWith(prefix)){
-        parseCommand(msg)
+        parseCommand(msg, prefix)
     }
 })
 

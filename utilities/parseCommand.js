@@ -5,7 +5,7 @@ const join = require('../commands/join')
 const leave = require('../commands/leave')
 const play = require('../commands/play')
 
-async function parseCommand(msg){
+async function parseCommand(msg, prefix){
     const path = __dirname.substring(0, __dirname.length-9) + "commands\\commands.json"
     let rawdata = fs.readFileSync(path)
     let commands = JSON.parse(rawdata)
@@ -19,6 +19,11 @@ async function parseCommand(msg){
 
     const commandArgs = commands[firstWord].args
     
+    if(firstWord == "play" && args.length > 2){
+        play(msg, msg.content.substring(prefix.length + 5, msg.content.length))
+        return
+    }
+
     if(commandArgs < args.length -1){
         msg.lineReply('Too many arguements!')
         return
