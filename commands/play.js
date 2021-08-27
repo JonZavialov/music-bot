@@ -1,6 +1,7 @@
 const ytPlay = require('../utilities/music/ytPlay')
-const spdl = require('spdl-core');
 const getUrlFromSearchTerm = require('../utilities/getUrlFromSearchTerm')
+const { getData } = require('spotify-url-info')
+const spotifyPlay = require('../utilities/music/spotifyPlay')
 
 async function play(msg, searchTerm){
     let url
@@ -8,20 +9,25 @@ async function play(msg, searchTerm){
         url = searchTerm
         if(searchTerm.indexOf('spotify') != -1){
             console.log('spotify link recieved')
-            spdl.getInfo(url)
-            .then(async(infos) => {
-                const artistAndName = infos.artist + " " + infos.title
-                url = await getUrlFromSearchTerm(artistAndName)
-                ytPlay(msg, url)
+            if(searchTerm.indexOf('playlist') == -1){
+                spotifyPlay(msg,url)
                 return
-            })
-            .catch(error => {
-                console.log(error)
-                msg.lineReply('Invalid URL!')
-            })
+            }else{
+                getData(url)
+                .then(async data => {
+                // 'tracks' property only exists on a playlist data object
+                if (data.tracks) {
+                    // handle playlist
+                    const spotifyPlaylistItems = await data.tracks.items
+                    for (let i = 0; i < spotifyPlaylistItems.length; i++) {
+                        //add song to queue
+                    }}
+                })
+            }
         }else if(searchTerm.indexOf('youtube') != -1){
             console.log('youtube link recieved')
             ytPlay(msg, url)
+            return
         }else{
             msg.lineReply('Invalid URL!')
             return
@@ -30,6 +36,7 @@ async function play(msg, searchTerm){
         console.log('youtube search recieved')
         url = await getUrlFromSearchTerm(searchTerm)
         ytPlay(msg, url)
+        return
     }
 }
 

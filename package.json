@@ -22,6 +22,7 @@
     "fs": "0.0.1-security",
     "node-opus": "^0.3.3",
     "spdl-core": "^2.0.2",
+    "spotify-url-info": "^2.2.3",
     "ytdl-core": "^4.9.1",
     "ytsr": "^3.5.3"
   }
