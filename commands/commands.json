@@ -30,5 +30,13 @@
     "skip": {
         "args": 0,
         "desc": "Skips the current song."
+    },
+    "pause": {
+        "args": 0,
+        "desc": "Pauses the playing of songs."
+    },
+    "resume": {
+        "args": 0,
+        "desc": "Resumes the playing of songs."
     }
 }
