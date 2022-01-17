@@ -1,3 +1,5 @@
+//Jonathan Zavialov :)
+
 const parseCommand = require('./utilities/parseCommand')
 const clearQueue = require('./utilities/music/clearQueue')
 
